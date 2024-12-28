@@ -86,37 +86,37 @@ This repository contains a Python-based application that allows users to upload 
 
 ## Function Descriptions
 
-### [save_audio_to_gcs(audio)](./app.py#L26)
+### [save_audio_to_gcs(audio)](./app.py#L27)
 - Saves an uploaded audio file to GCS.
 - Organizes files into folders based on the current date and a folder number.
 - Returns the GCS URI and folder path of the uploaded file.
 
-### [get_audio_duration(gcs_audio_uri)](./app.py#L53)
+### [get_audio_duration(gcs_audio_uri)](./app.py#L64)
 - Calculates the duration of an audio file stored in GCS.
 - Downloads the file temporarily and uses FFmpeg to extract its duration.
 - Returns the duration in seconds.
 
-### [transcribe_audio(gcs_audio_uri)](./app.py#L81)
+### [transcribe_audio(gcs_audio_uri)](./app.py#L92)
 - Converts audio files into text using Google Cloud Speech-to-Text API.
 - Automatically selects short or long transcription methods based on the file duration.
 - Updates a global variable `global_transcript` with the transcribed text.
 - Supports MP3 and WAV file formats.
 
-### [list_files_in_bucket()](./app.py#L118)
+### [list_files_in_bucket()](./app.py#L129)
 - Lists all files in the GCS bucket.
 - Organizes files in a hierarchical view based on folders.
 
-### [classify_transcript(transcript)](./app.py#L129)
+### [classify_transcript(transcript)](./app.py#L140)
 - Uses Gemini AI to identify major areas discussed in a transcript.
 - Generates classifications and categorizes each line into predefined areas.
 - Returns a detailed classification result.
 
-### [get_response(message, history)](./app.py#L162)
+### [get_response(message, history)](./app.py#L173)
 - Facilitates chat interactions using the assistant.
 - Uses the transcript and chat history to construct responses.
 - Leverages Gemini AI for natural language processing.
 
-### [gradio_interface()](./app.py#L194)
+### [gradio_interface()](./app.py#L205)
 - Builds the Gradio user interface.
 - Defines tabs for each feature: upload, transcribe, classify, and chat.
 - Launches the application.
