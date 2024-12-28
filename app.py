@@ -8,25 +8,27 @@ import tempfile
 import google.generativeai as genai
 
 # Path to the service account JSON file
-SERVICE_ACCOUNT_FILE = "sa_minutes_ai.json"  # Update the name as needed
+SERVICE_ACCOUNT_FILE = ""  # Update the name as needed
 
 # Initialize Google Cloud clients
 credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
 storage_client = storage.Client(credentials=credentials)
 speech_client = speech.SpeechClient(credentials=credentials)
-bucket_name = "meeting-ai-storage"  # Replace with your bucket name
+bucket_name = ""  # Replace with your bucket name
 bucket = storage_client.bucket(bucket_name)
 
 # Replace with your actual Gemini API key
-os.environ["GEMINI_API_KEY"] = "AIzaSyAjmcfNMGCSI19icee7X_1-2gMrZMmEq8M"
+os.environ["GEMINI_API_KEY"] = ""
 
 # Global context for transcript
 global_transcript = ""
 
+
 def save_audio_to_gcs(audio):
     """
-    Saves an audio file to Google Cloud Storage in a structured folder hierarchy.
-    The hierarchy is: <current_date>/<folder_number>/audio.wav
+    Saves an audio file (either uploaded or recorded) to Google Cloud Storage.
+    If the audio is recorded, it generates a name based on the current timestamp.
+    The hierarchy is: <current_date>/<folder_number>/<filename>
     """
     try:
         current_date = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -39,7 +41,14 @@ def save_audio_to_gcs(audio):
         ]
         new_folder_number = max(folder_numbers, default=0) + 1
         audio_folder = f"{date_folder}{new_folder_number}/"
-        audio_path = f"{audio_folder}audio.wav"
+
+        # Check if the audio file has a name or is a temporary file (for recorded audio)
+        if isinstance(audio, str):  # Uploaded file with a name
+            original_filename = os.path.basename(audio)
+        else:  # Recorded audio, generate a name based on the timestamp
+            original_filename = f"audio_{int(time.time())}.wav"
+
+        audio_path = f"{audio_folder}{original_filename}"
 
         blob = bucket.blob(audio_path)
         blob.upload_from_filename(audio)
@@ -49,6 +58,8 @@ def save_audio_to_gcs(audio):
         return f"Audio saved to: {gcs_uri}", audio_folder
     except Exception as e:
         return f"An error occurred while saving audio: {str(e)}", None
+
+
 
 def get_audio_duration(gcs_audio_uri):
     """
@@ -191,65 +202,19 @@ def get_response(message, history):
 
 
 # Gradio Interface
-# def gradio_interface():
-#     with gr.Blocks() as demo:
-#         gr.Markdown("# Meeting Minutes Assistant")
-
-#         with gr.Tab("Upload Audio"):
-#             audio_input = gr.Audio(type="filepath", label="Upload Audio File")
-#             upload_button = gr.Button("Upload Audio")
-#             audio_output = gr.Textbox(label="Audio Upload Status")
-
-#             upload_button.click(save_audio_to_gcs, inputs=audio_input, outputs=[audio_output])
-
-#         with gr.Tab("Transcribe Audio"):
-#             folder_selection = gr.Dropdown(label="Select Folder", choices=list(list_files_in_bucket().keys()))
-#             audio_selection = gr.Dropdown(label="Select Audio File")
-#             transcribe_button = gr.Button("Transcribe Audio")
-#             transcript_output = gr.Textbox(label="Transcript")
-
-#             def update_audio_dropdown(folder):
-#                 audio_files = list_files_in_bucket().get(folder, [])
-#                 return gr.update(choices=audio_files)
-
-#             folder_selection.change(update_audio_dropdown, inputs=folder_selection, outputs=audio_selection)
-
-#             def transcribe_selected_audio(audio_file):
-#                 gcs_uri = f"gs://{bucket_name}/{audio_file}"
-#                 return transcribe_audio(gcs_uri)
-
-#             transcribe_button.click(transcribe_selected_audio, inputs=audio_selection, outputs=transcript_output)
-
-#         with gr.Tab("Classify Transcript"):
-#             transcript_input = gr.Textbox(label="Enter Transcript")
-#             classify_button = gr.Button("Classify Transcript")
-#             classification_output = gr.Textbox(label="Classification Result")
-
-#             classify_button.click(classify_transcript, inputs=transcript_input, outputs=classification_output)
-
-#         with gr.Tab("Chat with Assistant"):
-#             chat_history = gr.Chatbot(type="messages")  # Remove 'type="messages"' for compatibility
-#             user_input = gr.Textbox(placeholder="Ask a question about the meeting...")
-#             submit_button = gr.Button("Submit")
-#             submit_button.click(get_response, inputs=[user_input, chat_history], outputs=chat_history)
-
-#     demo.launch()
-
-
-
 def gradio_interface():
     with gr.Blocks() as demo:
         gr.Markdown("# Meeting Minutes Assistant")
 
         with gr.Tab("Upload Audio"):
-            audio_input = gr.Audio(type="filepath", label="Upload Audio File")
+            audio_input = gr.Audio(type="filepath", label="Upload or Record Audio File")
             upload_button = gr.Button("Upload Audio")
             audio_output = gr.Textbox(label="Audio Upload Status")
 
             def upload_and_refresh(audio):
                 # Upload the audio and refresh the folder list
                 upload_status, _ = save_audio_to_gcs(audio)
-                updated_folders = list(list_files_in_bucket().keys())
+                updated_folders = list(list_files_in_bucket().keys())  # Add this to list folders
                 return upload_status, gr.update(choices=updated_folders)
 
             upload_button.click(
@@ -300,7 +265,6 @@ def gradio_interface():
             submit_button.click(get_response, inputs=[user_input, chat_history], outputs=chat_history)
 
     demo.launch()
-
 
 
 # Run the interface
