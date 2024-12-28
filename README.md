@@ -33,7 +33,7 @@ This repository contains a Python-based application that allows users to upload 
 
 2. **Install Dependencies**:
    ```bash
-   pip install gradio google-cloud-storage google-cloud-speech google-auth google-generativeai
+   pip install -r requirements.txt
    ```
 
 3. **Set Up GCP**:
