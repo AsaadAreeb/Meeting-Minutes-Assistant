@@ -1,0 +1,43 @@
+
+        ========================================
+        |           Transcription Analysis          |
+        ========================================
+        
+        🔹 **Analysis Date & Time**: 2024-11-29 14:07:45
+        
+        🔹 **Audio File Path**: /content/barackobamafirstpressconference.mp3
+        🔹 **Text File Path**: /content/trans.txt
+        🔹 **Whisper Model Used**: base
+        
+        ----------------------------------------
+        **Transcription Accuracy Metrics**:
+        ----------------------------------------
+        
+        🔸 **Word Error Rate (WER)**: 10.43%
+        🔸 **Character Error Rate (CER)**: 3.78%
+        
+        ----------------------------------------
+        **Text Comparison**:
+        ----------------------------------------
+        
+        🔹 **Original Text (Excerpt)**:
+        This morning we woke up to more sobering news about the state of our economy. The 
+240,000 jobs lost in October marks the 10th consecutive month that our economy has shed 
+jobs. In total, we've lost nearly 1.2 million jobs this year, and more than 10 million Americans 
+are now unemployed. Tens of millions of families are struggling to figure out how to pay the 
+bills and stay in their homes. Their stories are an urgent reminder that we are facing the 
+greatest economic challenge of our lifetime,...
+        
+        🔹 **Generated Transcription (Excerpt)**:
+         This morning we woke up to more sobering news about the state of our economy. The 240,000 jobs lost in October marks the 10th consecutive month that our economy has shed jobs. In total, we've lost nearly 1.2 million jobs this year, and more than 10 million Americans are now unemployed. Tens of millions of families are struggling to figure out how to pay the bills and stay in their homes. Their stories are an urgent reminder that we are facing the greatest economic challenge of our lifetime, and...
+        
+        ----------------------------------------
+        **Additional Observations**:
+        ----------------------------------------
+        
+        - The model used: base Whisper model (known for its balance between speed and accuracy).
+        - The transcription may have varying degrees of accuracy based on audio quality and model selection.
+        - Differences in phrasing, punctuation, or minor word usage may affect WER/CER.
+        
+        ========================================
+        

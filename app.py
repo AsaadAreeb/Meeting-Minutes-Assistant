@@ -1,10 +1,13 @@
 import gradio as gr
 import datetime
 import os
+import tempfile
+import subprocess
+import platform
 from google.cloud import storage, speech
 from google.oauth2 import service_account
-import subprocess
-import tempfile
+from pathlib import Path  # For cross-platform path handling
+from pydub.utils import mediainfo  # For audio duration as a fallback
 import google.generativeai as genai
 
 # Path to the service account JSON file
@@ -27,8 +30,7 @@ global_transcript = ""
 def save_audio_to_gcs(audio):
     """
     Saves an audio file (either uploaded or recorded) to Google Cloud Storage.
-    If the audio is recorded, it generates a name based on the current timestamp.
-    The hierarchy is: <current_date>/<folder_number>/<filename>
+    Generates a hierarchical path for the file based on the current timestamp.
     """
     try:
         current_date = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -42,52 +44,70 @@ def save_audio_to_gcs(audio):
         new_folder_number = max(folder_numbers, default=0) + 1
         audio_folder = f"{date_folder}{new_folder_number}/"
 
-        # Check if the audio file has a name or is a temporary file (for recorded audio)
-        if isinstance(audio, str):  # Uploaded file with a name
-            original_filename = os.path.basename(audio)
-        else:  # Recorded audio, generate a name based on the timestamp
-            original_filename = f"audio_{int(time.time())}.wav"
+        # Determine file name
+        audio_path = Path(audio).name if isinstance(audio, str) else f"audio_{int(time.time())}.wav"
+        full_audio_path = f"{audio_folder}{audio_path}"
 
-        audio_path = f"{audio_folder}{original_filename}"
-
-        blob = bucket.blob(audio_path)
+        # Upload to GCS
+        blob = bucket.blob(full_audio_path)
         blob.upload_from_filename(audio)
 
-        # Return the GCS URI (gs://<bucket_name>/<path_to_audio>)
-        gcs_uri = f"gs://{bucket_name}/{audio_path}"
+        gcs_uri = f"gs://{bucket_name}/{full_audio_path}"
         return f"Audio saved to: {gcs_uri}", audio_folder
     except Exception as e:
         return f"An error occurred while saving audio: {str(e)}", None
 
 
-
 def get_audio_duration(gcs_audio_uri):
     """
-    Retrieves the duration of the audio file in seconds.
+    Retrieves the duration of the audio file in seconds using FFmpeg, handling GCS URIs.
+    Compatible with both Linux and Windows.
     """
     try:
+        # Extract bucket name and blob name
         bucket_name = gcs_audio_uri.split("/")[2]
         blob_name = "/".join(gcs_audio_uri.split("/")[3:])
         bucket = storage_client.bucket(bucket_name)
         blob = bucket.blob(blob_name)
 
-        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+        # Download the audio file to a temporary file
+        with tempfile.NamedTemporaryFile(delete=False, suffix=os.path.splitext(blob_name)[1]) as temp_file:
             blob.download_to_filename(temp_file.name)
-            temp_file.close()
+            temp_file_path = temp_file.name
 
-            cmd = f"ffmpeg -i {temp_file.name} 2>&1 | grep 'Duration' | awk '{{print $2}}' | tr -d ,"
-            result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-            duration_str = result.stdout.strip()
-            os.remove(temp_file.name)
+        # Use ffmpeg to extract duration information
+        cmd = [
+            "ffmpeg",
+            "-i",
+            temp_file_path,
+            "-hide_banner",
+            "-f",
+            "null",
+            "-"
+        ]
+        result = subprocess.run(cmd, stderr=subprocess.PIPE, text=True)
+        
+        # Parse the FFmpeg output to find the duration
+        ffmpeg_output = result.stderr
+        duration_line = next((line for line in ffmpeg_output.split("\n") if "Duration" in line), None)
 
-            if duration_str:
-                parts = duration_str.split(":")
-                seconds = float(parts[0]) * 3600 + float(parts[1]) * 60 + float(parts[2])
-                return seconds
-            else:
-                return 0
+        # Remove the temporary file
+        os.remove(temp_file_path)
+
+        if duration_line:
+            # Extract the duration from the line
+            duration_str = duration_line.split(",")[0].split("Duration:")[1].strip()
+            parts = duration_str.split(":")
+            seconds = float(parts[0]) * 3600 + float(parts[1]) * 60 + float(parts[2])
+            return seconds
+        else:
+            raise ValueError("Unable to extract duration from FFmpeg output.")
     except Exception as e:
+        print(f"Error retrieving audio duration: {str(e)}")
         return 0
+
+
+
 
 def transcribe_audio(gcs_audio_uri):
     """
@@ -95,12 +115,11 @@ def transcribe_audio(gcs_audio_uri):
     """
     try:
         audio = speech.RecognitionAudio(uri=gcs_audio_uri)
-        if gcs_audio_uri.endswith(".wav"):
-            encoding = speech.RecognitionConfig.AudioEncoding.LINEAR16
-        elif gcs_audio_uri.endswith(".mp3"):
-            encoding = speech.RecognitionConfig.AudioEncoding.MP3
-        else:
-            raise ValueError("Unsupported file type. Only MP3 and WAV are supported.")
+        encoding = (
+            speech.RecognitionConfig.AudioEncoding.LINEAR16
+            if gcs_audio_uri.endswith(".wav")
+            else speech.RecognitionConfig.AudioEncoding.MP3
+        )
 
         config = speech.RecognitionConfig(
             encoding=encoding,
@@ -110,11 +129,17 @@ def transcribe_audio(gcs_audio_uri):
         )
 
         audio_duration_seconds = get_audio_duration(gcs_audio_uri)
+
+        # Ensure duration is numeric and greater than zero
+        if not isinstance(audio_duration_seconds, (int, float)) or audio_duration_seconds <= 0:
+            return "Error: Unable to determine audio duration. Please check the audio file."
+
         if audio_duration_seconds > 60:
             operation = speech_client.long_running_recognize(config=config, audio=audio)
             response = operation.result(timeout=600)
         else:
             response = speech_client.recognize(config=config, audio=audio)
+
 
         transcript = " ".join([result.alternatives[0].transcript for result in response.results])
 
@@ -125,6 +150,7 @@ def transcribe_audio(gcs_audio_uri):
         return transcript if transcript else "No speech detected."
     except Exception as e:
         return f"Transcription failed due to an error: {str(e)}"
+
 
 def list_files_in_bucket():
     """
@@ -137,6 +163,7 @@ def list_files_in_bucket():
         files.setdefault(folder, []).append(blob.name)
     return files
 
+
 def classify_transcript(transcript):
     """
     Classifies the transcript using the Gemini API.
@@ -144,7 +171,7 @@ def classify_transcript(transcript):
     genai.configure(api_key=os.environ["GEMINI_API_KEY"])
     model = genai.GenerativeModel("gemini-1.5-flash")
 
-    # First prompt: Identify major classes in the transcript
+    # Identify major areas
     prompt1 = f"""
     Read the following meeting transcript:
 
@@ -157,7 +184,7 @@ def classify_transcript(transcript):
     response1 = model.generate_content(prompt1)
     major_classes = response1.text.strip().split(",")
 
-    # Second prompt: Classify each line in the transcript
+    # Classify each line
     prompt2 = f"""
     Read the following meeting transcript:
 
@@ -167,8 +194,8 @@ def classify_transcript(transcript):
     """
 
     response2 = model.generate_content(prompt2)
-
     return response2.text.strip()
+
 
 def get_response(message, history):
     """
@@ -177,7 +204,6 @@ def get_response(message, history):
     if not global_transcript:
         return [{"role": "assistant", "content": "Please transcribe audio before asking questions."}]
 
-    # Construct the chat history as part of the prompt
     history_text = "\n".join(
         f"User: {entry['content']}" if entry['role'] == "user" else f"Assistant: {entry['content']}"
         for entry in history
@@ -211,37 +237,26 @@ def gradio_interface():
             upload_button = gr.Button("Upload Audio")
             audio_output = gr.Textbox(label="Audio Upload Status")
 
-            def upload_and_refresh(audio):
-                # Upload the audio and refresh the folder list
-                upload_status, _ = save_audio_to_gcs(audio)
-                updated_folders = list(list_files_in_bucket().keys())  # Add this to list folders
-                return upload_status, gr.update(choices=updated_folders)
-
             upload_button.click(
-                upload_and_refresh,
+                lambda audio: save_audio_to_gcs(audio)[0],
                 inputs=audio_input,
-                outputs=[audio_output],  # Only output audio upload status
+                outputs=audio_output,
             )
 
         with gr.Tab("Transcribe Audio"):
-            folder_selection = gr.Dropdown(label="Select Folder", choices=[])  # Only appears in this tab
+            folder_selection = gr.Dropdown(label="Select Folder", choices=[])
             audio_selection = gr.Dropdown(label="Select Audio File")
             transcribe_button = gr.Button("Transcribe Audio")
             transcript_output = gr.Textbox(label="Transcript")
 
             def refresh_folder_list():
-                """Fetch and update the list of folders from the GCS bucket."""
-                folders = list(list_files_in_bucket().keys())
-                return gr.update(choices=folders)
+                return gr.update(choices=list(list_files_in_bucket().keys()))
 
             def update_audio_list(folder):
-                """Fetch and update the list of audio files based on the selected folder."""
-                audio_files = list_files_in_bucket().get(folder, [])
-                return gr.update(choices=audio_files)
+                return gr.update(choices=list_files_in_bucket().get(folder, []))
 
-            # Refresh folders button
             refresh_folders = gr.Button("Refresh Folders")
-            refresh_folders.click(refresh_folder_list, inputs=None, outputs=folder_selection)
+            refresh_folders.click(refresh_folder_list, outputs=folder_selection)
 
             folder_selection.change(update_audio_list, inputs=folder_selection, outputs=audio_selection)
 
