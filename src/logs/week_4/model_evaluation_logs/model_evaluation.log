@@ -1,0 +1,48 @@
+2024-12-31 16:26:08,171 - INFO - Using default tokenizer.
+2024-12-31 16:26:11,588 - INFO - Evaluation Results for ../logs/week_4/generated_transcripts/transcript_1.txt - BLEU Score: 0.5378077747038676
+2024-12-31 16:26:11,588 - INFO - ROUGE-1: Score(precision=0.9657252536331231, recall=0.9625580759770429, fmeasure=0.9641390637831919)
+2024-12-31 16:26:11,588 - INFO - ROUGE-2: Score(precision=0.9029072956664839, recall=0.8999453253143794, fmeasure=0.9014238773274919)
+2024-12-31 16:26:11,588 - INFO - ROUGE-L: Score(precision=0.9468055936386071, recall=0.9437004646078163, fmeasure=0.9452504790583082)
+2024-12-31 16:26:11,588 - INFO - Self-BLEU Score (for all generated transcripts): 0.9981776833752921
+2024-12-31 16:26:11,661 - INFO - Using default tokenizer.
+2024-12-31 16:26:15,030 - INFO - Evaluation Results for ../logs/week_4/generated_transcripts/transcript_2.txt - BLEU Score: 0.5380098783052626
+2024-12-31 16:26:15,030 - INFO - ROUGE-1: Score(precision=0.9657252536331231, recall=0.9625580759770429, fmeasure=0.9641390637831919)
+2024-12-31 16:26:15,030 - INFO - ROUGE-2: Score(precision=0.9034558420186506, recall=0.900492072170585, fmeasure=0.9019715224534502)
+2024-12-31 16:26:15,030 - INFO - ROUGE-L: Score(precision=0.9470797916095421, recall=0.9439737633233124, fmeasure=0.9455242266630166)
+2024-12-31 16:26:15,030 - INFO - Self-BLEU Score (for all generated transcripts): 0.9981776833752921
+2024-12-31 16:26:15,046 - INFO - Using default tokenizer.
+2024-12-31 16:26:18,447 - INFO - Evaluation Results for ../logs/week_4/generated_transcripts/transcript_2.txt - BLEU Score: 0.5380098783052626
+2024-12-31 16:26:18,447 - INFO - ROUGE-1: Score(precision=0.9657252536331231, recall=0.9625580759770429, fmeasure=0.9641390637831919)
+2024-12-31 16:26:18,447 - INFO - ROUGE-2: Score(precision=0.9034558420186506, recall=0.900492072170585, fmeasure=0.9019715224534502)
+2024-12-31 16:26:18,447 - INFO - ROUGE-L: Score(precision=0.9470797916095421, recall=0.9439737633233124, fmeasure=0.9455242266630166)
+2024-12-31 16:26:18,447 - INFO - Self-BLEU Score (for all generated transcripts): 0.9981776833752921
+2024-12-31 16:26:18,465 - INFO - Using default tokenizer.
+2024-12-31 16:26:21,868 - INFO - Evaluation Results for ../logs/week_4/generated_transcripts/transcript_4.txt - BLEU Score: 0.5370167229691288
+2024-12-31 16:26:21,868 - INFO - ROUGE-1: Score(precision=0.9649122807017544, recall=0.9620114785460508, fmeasure=0.9634596961817435)
+2024-12-31 16:26:21,868 - INFO - ROUGE-2: Score(precision=0.9021113243761996, recall=0.8993985784581738, fmeasure=0.9007529089664614)
+2024-12-31 16:26:21,868 - INFO - ROUGE-L: Score(precision=0.9457236842105263, recall=0.9428805684613283, fmeasure=0.9442999863144931)
+2024-12-31 16:26:21,868 - INFO - Self-BLEU Score (for all generated transcripts): 0.9981776833752921
+2024-12-31 16:34:32,042 - INFO - Using default tokenizer.
+2024-12-31 16:34:35,532 - INFO - Evaluation Results for ../logs/week_4/generated_transcripts/transcript_1.txt - BLEU Score: 0.5378077747038676
+2024-12-31 16:34:35,532 - INFO - ROUGE-1: Score(precision=0.9657252536331231, recall=0.9625580759770429, fmeasure=0.9641390637831919)
+2024-12-31 16:34:35,532 - INFO - ROUGE-2: Score(precision=0.9029072956664839, recall=0.8999453253143794, fmeasure=0.9014238773274919)
+2024-12-31 16:34:35,532 - INFO - ROUGE-L: Score(precision=0.9468055936386071, recall=0.9437004646078163, fmeasure=0.9452504790583082)
+2024-12-31 16:34:35,532 - INFO - Self-BLEU Score (for all generated transcripts): 0.9981776833752921
+2024-12-31 16:34:35,606 - INFO - Using default tokenizer.
+2024-12-31 16:34:39,100 - INFO - Evaluation Results for ../logs/week_4/generated_transcripts/transcript_2.txt - BLEU Score: 0.5380098783052626
+2024-12-31 16:34:39,100 - INFO - ROUGE-1: Score(precision=0.9657252536331231, recall=0.9625580759770429, fmeasure=0.9641390637831919)
+2024-12-31 16:34:39,100 - INFO - ROUGE-2: Score(precision=0.9034558420186506, recall=0.900492072170585, fmeasure=0.9019715224534502)
+2024-12-31 16:34:39,100 - INFO - ROUGE-L: Score(precision=0.9470797916095421, recall=0.9439737633233124, fmeasure=0.9455242266630166)
+2024-12-31 16:34:39,100 - INFO - Self-BLEU Score (for all generated transcripts): 0.9981776833752921
+2024-12-31 16:34:39,116 - INFO - Using default tokenizer.
+2024-12-31 16:34:42,805 - INFO - Evaluation Results for ../logs/week_4/generated_transcripts/transcript_2.txt - BLEU Score: 0.5380098783052626
+2024-12-31 16:34:42,805 - INFO - ROUGE-1: Score(precision=0.9657252536331231, recall=0.9625580759770429, fmeasure=0.9641390637831919)
+2024-12-31 16:34:42,805 - INFO - ROUGE-2: Score(precision=0.9034558420186506, recall=0.900492072170585, fmeasure=0.9019715224534502)
+2024-12-31 16:34:42,806 - INFO - ROUGE-L: Score(precision=0.9470797916095421, recall=0.9439737633233124, fmeasure=0.9455242266630166)
+2024-12-31 16:34:42,806 - INFO - Self-BLEU Score (for all generated transcripts): 0.9981776833752921
+2024-12-31 16:34:42,822 - INFO - Using default tokenizer.
+2024-12-31 16:34:46,359 - INFO - Evaluation Results for ../logs/week_4/generated_transcripts/transcript_4.txt - BLEU Score: 0.5370167229691288
+2024-12-31 16:34:46,359 - INFO - ROUGE-1: Score(precision=0.9649122807017544, recall=0.9620114785460508, fmeasure=0.9634596961817435)
+2024-12-31 16:34:46,360 - INFO - ROUGE-2: Score(precision=0.9021113243761996, recall=0.8993985784581738, fmeasure=0.9007529089664614)
+2024-12-31 16:34:46,360 - INFO - ROUGE-L: Score(precision=0.9457236842105263, recall=0.9428805684613283, fmeasure=0.9442999863144931)
+2024-12-31 16:34:46,360 - INFO - Self-BLEU Score (for all generated transcripts): 0.9981776833752921

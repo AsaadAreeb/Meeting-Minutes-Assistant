@@ -1,0 +1,441 @@
+2024-12-31 15:40:42,971 - DEBUG - Using selector: EpollSelector
+2024-12-31 15:40:42,993 - DEBUG - connect_tcp.started host='api.gradio.app' port=443 local_address=None timeout=3 socket_options=None
+2024-12-31 15:40:43,021 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-12-31 15:40:43,490 - DEBUG - Using selector: EpollSelector
+2024-12-31 15:40:43,518 - DEBUG - connect_tcp.started host='127.0.0.1' port=7863 local_address=None timeout=None socket_options=None
+2024-12-31 15:40:43,519 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7bf7f0434a50>
+2024-12-31 15:40:43,519 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-12-31 15:40:43,519 - DEBUG - send_request_headers.complete
+2024-12-31 15:40:43,519 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-12-31 15:40:43,520 - DEBUG - send_request_body.complete
+2024-12-31 15:40:43,520 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-12-31 15:40:43,523 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Tue, 31 Dec 2024 10:40:43 GMT'), (b'server', b'uvicorn'), (b'content-length', b'4'), (b'content-type', b'application/json')])
+2024-12-31 15:40:43,523 - INFO - HTTP Request: GET http://127.0.0.1:7863/gradio_api/startup-events "HTTP/1.1 200 OK"
+2024-12-31 15:40:43,523 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-12-31 15:40:43,524 - DEBUG - receive_response_body.complete
+2024-12-31 15:40:43,524 - DEBUG - response_closed.started
+2024-12-31 15:40:43,524 - DEBUG - response_closed.complete
+2024-12-31 15:40:43,524 - DEBUG - close.started
+2024-12-31 15:40:43,525 - DEBUG - close.complete
+2024-12-31 15:40:43,526 - DEBUG - connect_tcp.started host='127.0.0.1' port=7863 local_address=None timeout=3 socket_options=None
+2024-12-31 15:40:43,526 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7bf7f03feea0>
+2024-12-31 15:40:43,527 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2024-12-31 15:40:43,528 - DEBUG - send_request_headers.complete
+2024-12-31 15:40:43,528 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2024-12-31 15:40:43,528 - DEBUG - send_request_body.complete
+2024-12-31 15:40:43,528 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2024-12-31 15:40:43,565 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Tue, 31 Dec 2024 10:40:43 GMT'), (b'server', b'uvicorn'), (b'content-length', b'38101'), (b'content-type', b'text/html; charset=utf-8')])
+2024-12-31 15:40:43,565 - INFO - HTTP Request: HEAD http://127.0.0.1:7863/ "HTTP/1.1 200 OK"
+2024-12-31 15:40:43,565 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2024-12-31 15:40:43,565 - DEBUG - receive_response_body.complete
+2024-12-31 15:40:43,566 - DEBUG - response_closed.started
+2024-12-31 15:40:43,566 - DEBUG - response_closed.complete
+2024-12-31 15:40:43,566 - DEBUG - close.started
+2024-12-31 15:40:43,566 - DEBUG - close.complete
+2024-12-31 15:40:43,572 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-12-31 15:40:43,785 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7bf7f03ff490>
+2024-12-31 15:40:43,786 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7bf7f38a8950> server_hostname='api.gradio.app' timeout=3
+2024-12-31 15:40:43,845 - DEBUG - https://huggingface.co:443 "HEAD /api/telemetry/gradio/initiated HTTP/1.1" 200 0
+2024-12-31 15:40:43,952 - DEBUG - https://huggingface.co:443 "HEAD /api/telemetry/gradio/launched HTTP/1.1" 200 0
+2024-12-31 15:40:44,445 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7bf7f38c8290>
+2024-12-31 15:40:44,446 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-12-31 15:40:44,447 - DEBUG - send_request_headers.complete
+2024-12-31 15:40:44,447 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-12-31 15:40:44,447 - DEBUG - send_request_body.complete
+2024-12-31 15:40:44,447 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-12-31 15:40:44,766 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 31 Dec 2024 10:40:44 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'21'), (b'Connection', b'keep-alive'), (b'Server', b'nginx/1.18.0'), (b'Access-Control-Allow-Origin', b'*')])
+2024-12-31 15:40:44,766 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-12-31 15:40:44,766 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-12-31 15:40:44,767 - DEBUG - receive_response_body.complete
+2024-12-31 15:40:44,767 - DEBUG - response_closed.started
+2024-12-31 15:40:44,767 - DEBUG - response_closed.complete
+2024-12-31 15:40:44,767 - DEBUG - close.started
+2024-12-31 15:40:44,767 - DEBUG - close.complete
+2024-12-31 15:40:55,422 - DEBUG - Calling on_part_begin with no data
+2024-12-31 15:40:55,423 - DEBUG - Calling on_header_field with data[58:77]
+2024-12-31 15:40:55,424 - DEBUG - Calling on_header_value with data[79:179]
+2024-12-31 15:40:55,424 - DEBUG - Calling on_header_end with no data
+2024-12-31 15:40:55,425 - DEBUG - Calling on_header_field with data[181:193]
+2024-12-31 15:40:55,425 - DEBUG - Calling on_header_value with data[195:205]
+2024-12-31 15:40:55,425 - DEBUG - Calling on_header_end with no data
+2024-12-31 15:40:55,425 - DEBUG - Calling on_headers_finished with no data
+2024-12-31 15:40:55,426 - DEBUG - Calling on_part_data with data[209:97750]
+2024-12-31 15:40:55,430 - DEBUG - Calling on_part_data with data[0:94848]
+2024-12-31 15:40:55,434 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,438 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,444 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,447 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,450 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,452 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,454 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,457 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,460 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,464 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,468 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,471 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,475 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,478 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,482 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,484 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,488 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,492 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,495 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,498 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,501 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,504 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,507 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,512 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,515 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,518 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,522 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,524 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,528 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,531 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,534 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,537 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,540 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,544 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,547 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,549 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,552 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,554 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,556 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,562 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,565 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,567 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,569 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,572 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,576 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,580 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,582 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,586 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,589 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,592 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,595 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,599 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,601 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,603 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,606 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,609 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,611 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,614 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,617 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,620 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,624 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,628 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,631 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,635 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,638 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,642 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,644 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,647 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,648 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,651 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,653 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,655 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,658 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,661 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,664 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,667 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,670 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,674 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,677 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,680 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,682 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,684 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,686 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,689 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,693 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,696 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,699 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,703 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,706 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,711 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,717 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,721 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,725 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,729 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,732 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,735 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,737 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,740 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,745 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,748 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,750 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,751 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,753 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,756 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,760 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,764 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,766 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,769 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,771 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,775 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,778 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,780 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,783 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,784 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,786 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,788 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,791 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,794 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,796 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,798 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,800 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,802 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,804 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,808 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,811 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,814 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,817 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,819 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,821 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,825 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,830 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,832 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,834 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,836 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,838 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,842 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,845 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,847 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,849 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,851 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,852 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,856 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,861 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,864 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,865 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,867 - DEBUG - Calling on_part_data with data[0:262143]
+2024-12-31 15:40:55,869 - DEBUG - Calling on_part_data with data[0:1]
+2024-12-31 15:40:55,869 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,871 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,874 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,877 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,881 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,883 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,885 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,887 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,889 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,892 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,896 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,899 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,901 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,904 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,909 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,913 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,915 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,918 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,921 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,923 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,927 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,930 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,933 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,935 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,937 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,940 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,943 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,946 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,949 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,951 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,954 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,958 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,962 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,965 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,967 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,970 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,972 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,977 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,980 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,982 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,985 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,987 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,989 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,993 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,996 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:55,998 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,001 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,003 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,006 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,009 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,012 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,014 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,017 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,019 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,021 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,027 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,030 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,033 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,035 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,037 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,040 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,042 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,045 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,047 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,049 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,052 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,054 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,058 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,061 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,063 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,066 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,068 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,069 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,071 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,073 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,076 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,078 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,080 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 15:40:56,082 - DEBUG - Calling on_part_data with data[0:2870]
+2024-12-31 15:40:56,082 - DEBUG - Calling on_part_end with no data
+2024-12-31 15:40:56,082 - DEBUG - Calling on_end with no data
+2024-12-31 15:40:57,650 - DEBUG - matplotlib data path: /home/dibs/TTDS/minutes_ai/lib/python3.13/site-packages/matplotlib/mpl-data
+2024-12-31 15:40:57,668 - DEBUG - CONFIGDIR=/home/dibs/.config/matplotlib
+2024-12-31 15:40:57,675 - DEBUG - interactive is False
+2024-12-31 15:40:57,676 - DEBUG - platform is linux
+2024-12-31 15:40:57,830 - DEBUG - CACHEDIR=/home/dibs/.cache/matplotlib
+2024-12-31 15:40:57,832 - DEBUG - Using fontManager instance from /home/dibs/.cache/matplotlib/fontlist-v390.json
+2024-12-31 15:40:58,349 - DEBUG - Loaded backend agg version v2.2.
+2024-12-31 15:40:58,352 - INFO - Starting audio upload to Google Cloud Storage.
+2024-12-31 15:40:58,354 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2024-12-31 15:40:58,403 - DEBUG - Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2024-12-31 15:40:58,866 - DEBUG - https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2024-12-31 15:40:58,870 - DEBUG - Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-12-31 15:40:59,444 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prefix=2024-12-31%2F&prettyPrint=false HTTP/1.1" 200 2588
+2024-12-31 15:40:59,742 - DEBUG - https://storage.googleapis.com:443 "POST /upload/storage/v1/b/meeting-ai-storage/o?uploadType=resumable HTTP/1.1" 200 0
+2024-12-31 15:41:52,122 - DEBUG - https://storage.googleapis.com:443 "PUT /upload/storage/v1/b/meeting-ai-storage/o?uploadType=resumable&upload_id=AFiumC459kZjAinLX49OFp1p0aqCegCeOr4G3If76PVMyQNDehxVSufQzgtafumqdZ9Rp6jbHtUfvB_BiK7x1QH-1FZW89EsLXUyg1y2w5Ad8A HTTP/1.1" 200 1114
+2024-12-31 15:41:52,126 - INFO - Audio uploaded successfully: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 15:43:20,055 - INFO - Fetching list of files in the bucket.
+2024-12-31 15:43:20,434 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 98223
+2024-12-31 15:43:24,707 - INFO - Fetching list of files in the bucket.
+2024-12-31 15:43:25,933 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 98223
+2024-12-31 15:43:29,303 - INFO - Starting transcription for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 15:43:29,303 - INFO - Fetching audio duration for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 15:43:29,664 - DEBUG - https://storage.googleapis.com:443 "GET /download/storage/v1/b/meeting-ai-storage/o/2024-12-31%2F4%2FBarack%20Obama%20Gives%202005%20Commencement%20Address%20at%20Knox%20College.mp3?alt=media HTTP/1.1" 200 58915515
+2024-12-31 15:44:04,079 - INFO - Audio duration: 1472.84 seconds
+2024-12-31 15:47:55,828 - INFO - Transcription completed successfully.
+2024-12-31 15:57:10,742 - INFO - Starting transcription for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 15:57:10,742 - INFO - Fetching audio duration for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 15:57:10,746 - DEBUG - Resetting dropped connection: storage.googleapis.com
+2024-12-31 15:57:11,520 - DEBUG - https://storage.googleapis.com:443 "GET /download/storage/v1/b/meeting-ai-storage/o/2024-12-31%2F4%2FBarack%20Obama%20Gives%202005%20Commencement%20Address%20at%20Knox%20College.mp3?alt=media HTTP/1.1" 200 58915515
+2024-12-31 15:57:46,263 - INFO - Audio duration: 1472.84 seconds
+2024-12-31 16:01:45,032 - INFO - Transcription completed successfully.
+2024-12-31 16:02:27,837 - INFO - Fetching list of files in the bucket.
+2024-12-31 16:02:27,839 - DEBUG - Resetting dropped connection: storage.googleapis.com
+2024-12-31 16:02:28,476 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 98223
+2024-12-31 16:02:34,649 - INFO - Starting transcription for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 16:02:34,650 - INFO - Fetching audio duration for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 16:02:35,045 - DEBUG - https://storage.googleapis.com:443 "GET /download/storage/v1/b/meeting-ai-storage/o/2024-12-31%2F4%2FBarack%20Obama%20Gives%202005%20Commencement%20Address%20at%20Knox%20College.mp3?alt=media HTTP/1.1" 200 58915515
+2024-12-31 16:03:11,739 - INFO - Audio duration: 1472.84 seconds
+2024-12-31 16:07:12,356 - INFO - Transcription completed successfully.
+2024-12-31 16:07:37,351 - INFO - Starting transcription for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 16:07:37,351 - INFO - Fetching audio duration for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 16:07:37,353 - DEBUG - Resetting dropped connection: storage.googleapis.com
+2024-12-31 16:07:38,090 - DEBUG - https://storage.googleapis.com:443 "GET /download/storage/v1/b/meeting-ai-storage/o/2024-12-31%2F4%2FBarack%20Obama%20Gives%202005%20Commencement%20Address%20at%20Knox%20College.mp3?alt=media HTTP/1.1" 200 58915515
+2024-12-31 16:08:08,308 - INFO - Audio duration: 1472.84 seconds
+2024-12-31 16:13:31,518 - INFO - Transcription completed successfully.
+2024-12-31 16:47:05,864 - DEBUG - Using selector: EpollSelector
+2024-12-31 16:47:05,866 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-12-31 16:47:05,881 - DEBUG - connect_tcp.started host='api.gradio.app' port=443 local_address=None timeout=3 socket_options=None
+2024-12-31 16:47:06,320 - DEBUG - Using selector: EpollSelector
+2024-12-31 16:47:06,344 - DEBUG - connect_tcp.started host='127.0.0.1' port=7864 local_address=None timeout=None socket_options=None
+2024-12-31 16:47:06,344 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7c3114738a50>
+2024-12-31 16:47:06,345 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-12-31 16:47:06,345 - DEBUG - send_request_headers.complete
+2024-12-31 16:47:06,345 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-12-31 16:47:06,345 - DEBUG - send_request_body.complete
+2024-12-31 16:47:06,345 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-12-31 16:47:06,347 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Tue, 31 Dec 2024 11:47:06 GMT'), (b'server', b'uvicorn'), (b'content-length', b'4'), (b'content-type', b'application/json')])
+2024-12-31 16:47:06,348 - INFO - HTTP Request: GET http://127.0.0.1:7864/gradio_api/startup-events "HTTP/1.1 200 OK"
+2024-12-31 16:47:06,348 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-12-31 16:47:06,348 - DEBUG - receive_response_body.complete
+2024-12-31 16:47:06,348 - DEBUG - response_closed.started
+2024-12-31 16:47:06,348 - DEBUG - response_closed.complete
+2024-12-31 16:47:06,348 - DEBUG - close.started
+2024-12-31 16:47:06,348 - DEBUG - close.complete
+2024-12-31 16:47:06,349 - DEBUG - connect_tcp.started host='127.0.0.1' port=7864 local_address=None timeout=3 socket_options=None
+2024-12-31 16:47:06,350 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7c31146feb10>
+2024-12-31 16:47:06,350 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2024-12-31 16:47:06,350 - DEBUG - send_request_headers.complete
+2024-12-31 16:47:06,350 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2024-12-31 16:47:06,350 - DEBUG - send_request_body.complete
+2024-12-31 16:47:06,350 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2024-12-31 16:47:06,369 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Tue, 31 Dec 2024 11:47:06 GMT'), (b'server', b'uvicorn'), (b'content-length', b'38101'), (b'content-type', b'text/html; charset=utf-8')])
+2024-12-31 16:47:06,369 - INFO - HTTP Request: HEAD http://127.0.0.1:7864/ "HTTP/1.1 200 OK"
+2024-12-31 16:47:06,369 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2024-12-31 16:47:06,369 - DEBUG - receive_response_body.complete
+2024-12-31 16:47:06,369 - DEBUG - response_closed.started
+2024-12-31 16:47:06,369 - DEBUG - response_closed.complete
+2024-12-31 16:47:06,369 - DEBUG - close.started
+2024-12-31 16:47:06,370 - DEBUG - close.complete
+2024-12-31 16:47:06,372 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-12-31 16:47:06,388 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7c31146ff360>
+2024-12-31 16:47:06,388 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7c311d4b0950> server_hostname='api.gradio.app' timeout=3
+2024-12-31 16:47:06,501 - DEBUG - https://huggingface.co:443 "HEAD /api/telemetry/gradio/initiated HTTP/1.1" 200 0
+2024-12-31 16:47:06,761 - DEBUG - https://huggingface.co:443 "HEAD /api/telemetry/gradio/launched HTTP/1.1" 200 0
+2024-12-31 16:47:07,014 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7c311d4c8290>
+2024-12-31 16:47:07,014 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-12-31 16:47:07,014 - DEBUG - send_request_headers.complete
+2024-12-31 16:47:07,014 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-12-31 16:47:07,014 - DEBUG - send_request_body.complete
+2024-12-31 16:47:07,015 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-12-31 16:47:07,327 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 31 Dec 2024 11:47:07 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'21'), (b'Connection', b'keep-alive'), (b'Server', b'nginx/1.18.0'), (b'Access-Control-Allow-Origin', b'*')])
+2024-12-31 16:47:07,327 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-12-31 16:47:07,328 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-12-31 16:47:07,328 - DEBUG - receive_response_body.complete
+2024-12-31 16:47:07,328 - DEBUG - response_closed.started
+2024-12-31 16:47:07,328 - DEBUG - response_closed.complete
+2024-12-31 16:47:07,328 - DEBUG - close.started
+2024-12-31 16:47:07,328 - DEBUG - close.complete
+2024-12-31 16:47:31,269 - DEBUG - matplotlib data path: /home/dibs/TTDS/minutes_ai/lib/python3.13/site-packages/matplotlib/mpl-data
+2024-12-31 16:47:31,275 - DEBUG - CONFIGDIR=/home/dibs/.config/matplotlib
+2024-12-31 16:47:31,277 - DEBUG - interactive is False
+2024-12-31 16:47:31,283 - DEBUG - platform is linux
+2024-12-31 16:47:31,356 - DEBUG - CACHEDIR=/home/dibs/.cache/matplotlib
+2024-12-31 16:47:31,357 - DEBUG - Using fontManager instance from /home/dibs/.cache/matplotlib/fontlist-v390.json
+2024-12-31 16:47:31,633 - DEBUG - Loaded backend agg version v2.2.
+2024-12-31 16:47:31,634 - INFO - Fetching list of files in the bucket.
+2024-12-31 16:47:31,635 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2024-12-31 16:47:31,672 - DEBUG - Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2024-12-31 16:47:32,147 - DEBUG - https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2024-12-31 16:47:32,149 - DEBUG - Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-12-31 16:47:32,779 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 99032
+2024-12-31 16:47:38,000 - INFO - Fetching list of files in the bucket.
+2024-12-31 16:47:38,322 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 99032
+2024-12-31 16:47:42,646 - INFO - Fetching list of files in the bucket.
+2024-12-31 16:47:42,974 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 99032
+2024-12-31 16:47:46,345 - INFO - Starting transcription for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 16:47:46,346 - INFO - Fetching audio duration for URI: gs://meeting-ai-storage/2024-12-31/4/Barack Obama Gives 2005 Commencement Address at Knox College.mp3
+2024-12-31 16:47:46,758 - DEBUG - https://storage.googleapis.com:443 "GET /download/storage/v1/b/meeting-ai-storage/o/2024-12-31%2F4%2FBarack%20Obama%20Gives%202005%20Commencement%20Address%20at%20Knox%20College.mp3?alt=media HTTP/1.1" 200 58915515
+2024-12-31 16:48:18,616 - INFO - Audio duration: 1472.84 seconds
+2024-12-31 16:52:17,324 - INFO - Transcription completed successfully.
+2024-12-31 16:56:27,698 - INFO - Starting transcript classification.
+2024-12-31 16:56:44,492 - INFO - Classification completed successfully.
+2024-12-31 16:57:49,599 - INFO - Constructed prompt for assistant response.
+2024-12-31 16:57:49,600 - DEBUG - Prompt:
+
+        Based on the meeting transcript:
+
+        good morning thank you  good morning President Taylor Board of Trustees faculty parents family friends the community of Galesburg  big class of 1955 which I understand was out partying last night and he had still showed up here on time  and most of all the class of 2005 congratulations on your graduation  and thank you  thank you for the honor of allowing me to be a part of it thank you also mr. president for this honorary degree it was only a couple of years ago that I stop paying my student loans at Law School  had I known it was this easy I would have ran for the United States in earlier  it all it has been about 6 months now since you sent me to Washington as your United States enter I recognize that not all of you voted for me so for those of you muttering under your breath I didn't send you anywhere  that's okay too maybe we'll hold out what what do you call it a little pump handle after the ceremony change your mind for the next time  it has been a fascinating Journey thus far each time I walk onto the senate floor I'm reminded of the history for good and for ill that's been made there but there have been a few surreal moments for example I remember the day before I was sworn in myself and my staff we decided to hold a press conference in our office now keep in mind that I am ranked 99th in fjord  I was proud that I was not in ranked dead last until I found out it's just because Illinois is bigger than Colorado  so I'm 99th and seniority and all the reporters are crammed into the tiny transition office that I have which is right next to the Janitor's Closet in the basement of the Dirksen office building it's my first day on the building I have not taken a single vote I have not introduced one Bill had not even sat down in my desk and it's very Earnest report to raise his hand and says Senator Obama  what is your place in history  I did what you just said witches laugh out loud  play some history I thought he was kidding. At that point I wasn't even sure if the other Senators would save a place for me at the cool kids table  but as I was thinking about the words to share with this class about what's next about what's possible and what opportunities lay ahead I actually think it's not a bad question for you the class of 2005 to ask yourselves  what will be your place in history  yo in other eras across distant lands this question could be answered with relative ease and certainty  as a servant in Rome you knew you'd spend your life force to build somebody else's Empire as a peasant and 11th century China you knew that no matter how hard you worked the local warlord my come and take everything you had and you also knew that famine might come knocking at the door as a subject of King George you know that your freedom of worship and your freedom to speak and a build your own life would be ultimately limited by the throne  and then America app  a place  where Destiny was not a destination but a journey to be shared and shaped and remade by people who had the gall the temerity to believe that Against All Odds they could form a more perfect union on this new frontier  as people around the world began to hear the tale of the Lonely the lonely colonists who overthrew an empire for the sake of an idea they started to come  across oceans and the ages they settled in Boston and Charleston Chicago in St Louis Kalamazoo and Galesburg to try and build their own American Dream  this Collective dream move forward imperfectly  it was scarred by our treatment of native peoples betrayed by slavery clouded by the subjugation of women shaken by War and depression  and yet brick-by-brick rail by rail Calais tan by calloused and people kept dreaming and building and working and marching and petitioning their government until they made America a land where the question of our place in history is not answered for us it's answered by us  that we failed the times absolutely will you occasionally fail when you embark on your own American journey  you surely will  but the test is not perfection  the true test of the American ideal is whether we're able to recognize our failings and then rise together to meet the challenges of our time  why do we allow ourselves to be shaped by events in history or whether we act to shape them  weather chance of birth or circumstance decides life's big winners and losers or whether we build a community we're at the very least everyone has a chance to work hard get ahead and reach their drinks  we have faced this Choice before  at the end of the Civil War when farmers and their families began moving into the cities to work in the big factories there were sprouting up all across America we had to decide do we do nothing and allow captains of industry and robber barons to run roughshod over the economy and workers by competing to see who can pay the lowest wages at the worst working conditions  or do we try to make the system work by setting up basic rules for the market instituting the first Public Schools busting up monopolies letting workers organized into you  we chose to act and we rolls together  when the irrational exuberance of the Roaring Twenties Came Crashing Down with the stock market we had to decide do we follow the call of leaders who would do nothing  or the call of a leader who perhaps because of his physical paralysis refuse to accept political paralysis  we chose act regulating the market putting people back to work expanding bargaining rights to include Health Care in the Secure Retirement and together we wrote  when World War I required the most massive whole front mobilization in history and we needed every single America to lend a hand we had to decide do we listen to Skeptics who told us it wasn't possible to produce that many tanks or planes or did we build Roosevelt Arsenal for democracy and grow our economy even further by providing our returning Heroes with a chance to go to college and own their own home  again we chose to act and again we're always together  today at the beginning of this young Century we have to decide again  but this time it is your turn to chuse  you're in Galesburg you know what this new challenges you seen it  all of you your first year in college so what happened at 9:11 it's already been noted the degree to which your lives will be intertwined with the war on terror prison that currently is taking place but what you've also seen perhaps not as spectacularly  is the fact that when you drive by the old Maytag plant around lunch time no one walks out anymore  I saw it during the campaign when I meant Union guys who worked at the plant for 20 30 years and I wonder what they're going to do with the age of 55 without a pension or health care what I met the man whose son needed a new liver but because he been laid off didn't know if he could afford  to provide his child the care that he needed  it's as if someone changed the rules in the middle of the game and no one no one bothered to tell these folks and a reality the rules have changed  it started with technology and automation then rendered entire occupations obsolete when was the last time anybody here stood in line for the bank teller instead of going to the ATM or talk to a switchboard operator  then it continued with companies like Maytag were able to pick up and move their factories to some underdeveloped country where workers were a lot cheaper than they are in the United States  has Tom Friedman points out in his new book The World is Flat over the last decade or so these forces technology and globalization are combined like never before so that while most of us have been paying attention to how much easier technology has made our own lives sending emails back and forth on our Blackberry surfing the web on our cell phones instant messaging with friends across the world a quiet revolution has been breaking down barriers and connecting the world's economies now business  not only have the ability to move jobs wherever there's a factory but wherever there's an internet connection  countries like India and China realize this they understand that they no longer need be just a source of cheap labor or chief exports they can compete with us on a global scale  the one resources they needed were skilled educated workers so they started schooling their kids earlier longer with a greater emphasis on Math and Science and Technology until their most talented students realize they don't have to come to America to have a decent life they can stay right where they are  the result China is graduating four times the number of Engineers that the United States is graduating not only are those Maytag employees competing with Chinese and Indian and Indonesian and Mexican workers you are to  today accounting firms are emailing your tax returns to workers in India will figure them out and send them back to you as fast as any worker in Illinois or Indiana cook  when you lose your luggage in Boston  at an airport tracking it down may involve a call to an agent in Bangalore will find it by making a phone call to Baltimore even the Associated Press has outsourced some of their jobs to writers all over the world who can send in a story at a click of a mouse  and Prime Minister Tony Blair has said in this new economy Talent is the 21st century well if you got skills you've got education and you have the opportunity to upgrade and improve both will be able to compete and win anywhere if not the fall will be further and harder than it ever was before  so what do we do about this how does America find its way in this new global economy what will our place in history be  like so much of the American story once again we Face a choice once again there are those who believe that there isn't much we can do about this as a nation that the best idea is to give everyone one big refund on their government giving it up by individual portions in the form of tax breaks handed out encourage everyone to use their share to go by their own health care their own retirement plan their own child care their own education and so on  in Washington they call this the ownership Society  but in our past there's been another term for social Darwinism every man or woman for him or herself  if a tempting idea because it doesn't require much thought or ingenuity  it allows us to say that those whose health care of tuition may rise faster than they can afford tough luck  it allows us to say to the Maytag workers who lost their job life isn't fair  Alexa say to the child who was born into poverty pull yourself up by your bootstraps  and it's especially tempting because each of us believe we will always be the winner in life Lottery that we're the ones who will be the next Donald Trump or at least we won't be the Trump to Donald Trump says you're fired  but there's a problem  it won't work  it ignores our history it ignores the fact that it's been Government research and investment that made the railway possible and the internet possible it's been the creation of a massive middle class for decent wages and benefits in public schools that allowed us all to prosper are economically dependent dependent on individual initiative it depended on a belief in the free market but it also depended on our sense of mutual regard for each other the idea that everybody has a stake in the country that we're all in it together and everybody's got a shot at Opportunity that's what's produced or on Rival political stability and so if we do nothing in the face of globalization more people will continue to lose their health care if your kids will be able to afford the diploma you're about to receive more companies like United Airlines won't be able to provide pensions for their employees  and those Maytag workers will be joined in the unemployment line by any worker whose skills can be bought and sold on the global market  so today I'm here to tell you what most of you already know  this is not us the option that I just mentioned doing nothing it's not how our story ends not in this country  America the land of big dreamers and big hopes  if it's hope it's the same as the Revolution and Civil War Depression and World War a struggle for civil and social rights and the brink of nuclear crisis and it's because our dreamers dream that we have a merge from each challenge more united more prosperous and more admired than before  so what's great instead of doing nothing or simply defending 20th century Solutions let's imagine together what we could do to give every American a Fighting Chance in the 21st century  what if we prepared every child in America with the education and skills they need to compete in the new economy if we made sure the college was affordable for everyone who wanted to go if we walked up to those Maytag workers and we said your old job is not coming back but the new job will be there because we're going to seriously retrain you and there's lifelong education that's waiting for you the sorts of opportunities that knocks is created with the strong Futures scholarship program what if no matter where you worked or how many times you switch jobs you at Healthcare and a pension that stayed with you always so you all have the flexibility to move to a better job or start a new business what if instead of cutting budgets for research and development and science we fueled the genius and Innovation that will lead to the new jobs and new industries of the future right now  all across America there are amazing discoveries being made  if we supported these discoveries on a national level if we committed ourselves to investing in these possibilities just imagine what it could do for a town like Galesburg 10 or 20 years down the road they do Maytag plant could reopen its doors as an ethanol Refinery the turn corn into fuel down the street a biotechnology research lab could open up on the cusp of discovering a cure for cancer across the way a new auto company could be busy turning out electric cars the new jobs created would be filled by American workers trained with new skills and a world-class education  all of that is possible but none of it will come easy every one of us is going to have to work more read more train more think more will have to drop off some bad habits like driving gas guzzlers that weaken our economy and feed our enemies abroad our children will have to turn off the TV set once in awhile and put away the video games and start hitting the books  we'll have to reform institutions like the public schools that were designed for an earlier time Republicans will have to recognize our Collective responsibilities even as Democrats recognize that we have to do more than just defend old programs it won't be easy  but it can't be done  it can be our future we have the talent and resources and brain power but now we need the political will we need a national commitment  and we need each of you  no one can force you to meet these challenges if you want it will be pretty easy for you to leave here today and not give another thought to towns like Galesburg and the challenges they face there's no community service requirement in the real world no one is forcing you to care you can take your diploma walk off this stage and go chasing after the big house and the nice suit and all the other things that are money culture says that you should want that you should fire to that you can buy  but I hope you don't walk away from The Challenge  focusing your life solely on making a buck shows a certain Poverty of ambition  it asks too little of yourself  you need to take up the challenges that we face as a nation and make them your own not because you have a debt to those who helped you get here although you do have that that not because you have an obligation to those who are less fortunate than you although I think you do have that obligation it's primarily because you have an obligation to yourself  because individual salvation has always depended on Collective salvation because it's only one you hit your wagon to something larger than yourself that you realize your true potential  I know that all of you were wondering how you'll do this the challenges seem so big and seemed so difficult for one person to make a difference  but we know it can be done because where you're sitting in this very place in this town it happened before nearly two centuries ago before civil rights before voting rights before Abraham Lincoln before the Civil War before all of that America was stained by the sin of slavery  in the sweltering heat of Southern plantations men and women who look like me  could Escape could not escape the life of pain and servitude in which they were sold and yet you were after year as this moral cancer ate away at the American ideals of Liberty and equality the nation was silent  but it's Nation but if people didn't stay silent for long one-by-one abolitionists emerged to tell their fellow Americans that this would not be our place in history that this was not the America that has captured the imagination of the world  this was this tits  that they met with Fierce and some paid with their lives but they would not be deterred and they soon spread out across the country to fight for their cause one man from New York went went all the way to the Prairies of Illinois to start a colony and here in Galesburg Freedom found a home  you're in Galesburg the main Depot for the Underground Railroad in Illinois escaped slaves could roam freely on the streets and take shelter in people's homes  and when their masters are there police would come for them  the people in this town would help them Escape North some literally carrying them in their arms to Freedom  think about the risk that that involved if you are caught abetting a fugitive you could be jailed or lynched it would have been simple for these townspeople to turn the other way to live their lives in a private peace  and yet they didn't do that why  because they knew that we were all Americans and we were all brothers and sisters the same reason that a century later young men and women your age would take Freedom Rides down south to work for the Civil Rights Movement  the same reason that black women  would walk instead of ride a bus after a long day of doing somebody else's laundry and cleaning somebody else kitchen because they were Marching for Freedom  today on this day of possibility we stand in the shadow of a lanky rawbone man with little formal education who once took the stage at domain and told the nation that if anyone did not believe the American principles of freedom and equality that those principles were Timeless and all inclusive they should go rip that page out of the Declaration of Independence  My Hope for all of you  is it as you leave here today you decide to keep these principles alive in your own life and in the life of this country you will be tested  you won't always succeed  but know that you have it within your power to try the generations who come before you face the same fears and uncertainties in their own time and the through our labor through our Collective labor and God's Providence and our willingness to shoulder each other's burdens America will continue on its precious Journey towards that distant Verizon and a better thank you so much class of 2005 congratulations on your graduation thank you
+
+        Here is the conversation history:
+        
+
+        Now, answer the following question:
+        what was this speech about? and who was giving this speech? who were the attendants? whats so important about this speech?
+        
+2024-12-31 16:57:54,735 - INFO - Assistant response generated successfully.
+2024-12-31 16:57:54,735 - DEBUG - Response:
+This was a graduation speech delivered by Barack Obama (at the time, a newly elected US Senator) at a Galesburg, Illinois graduation ceremony.  The attendants included the graduating class of 2005, President Taylor (presumably of the college/university), the Board of Trustees, faculty, parents, friends, and members of the Galesburg community.  There was also a mention of the class of 1955.
+
+
+The speech is important because it outlines Obama's vision for America's role in the burgeoning globalized economy of the 21st century.  It's not just a celebratory address; it's a call to action.  Obama contrasts two approaches to navigating the challenges of globalization:
+
+* **Social Darwinism/Ownership Society:**  A laissez-faire approach where individuals are solely responsible for their success or failure, with minimal government intervention. He argues this approach is historically inaccurate and ultimately detrimental to the American ideal.
+
+* **Collective Action/Shared Responsibility:** An approach emphasizing government investment in education, healthcare, and infrastructure, coupled with a strong social safety net, to ensure everyone has a "fighting chance." This approach is presented as consistent with America's historical successes in overcoming challenges.
+
+The speech highlights the changing economic landscape, with automation and outsourcing leading to job losses.  He uses the example of the closing Maytag plant in Galesburg to illustrate the immediate impact of globalization on the community.  Obama challenges the graduates to actively shape their place in history by embracing collective responsibility and working towards a more just and equitable society.  He links this challenge to the town's history as a key stop on the Underground Railroad, emphasizing the importance of continuing the fight for social justice.
+
+In short, the speech's importance lies in its powerful articulation of a key political and economic philosophy—one that stresses shared responsibility and proactive government involvement in ensuring opportunity for all—at a pivotal moment in American history.
+2024-12-31 16:57:54,735 - INFO - Conversation history updated.
