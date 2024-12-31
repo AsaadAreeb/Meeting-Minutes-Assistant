@@ -11,14 +11,14 @@ import os
 
 # Initialize logging with append mode
 logging.basicConfig(
-    filename="../logs/week_4/model_evaluation_logs/model_evaluation.log",
+    filename="../logs/week_4/model_evaluation_logs/model_evaluation.lo",
     level=logging.DEBUG,
     format="%(asctime)s - %(levelname)s - %(message)s",
     filemode='a'  # Append mode
 )
 
 # Path to the service account JSON file
-SERVICE_ACCOUNT_FILE = "../../sa_minutes_ai.json"  # Update the name as needed
+SERVICE_ACCOUNT_FILE = ""  # Update the name as needed
 
 # Initialize Google Cloud clients
 credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
@@ -28,7 +28,7 @@ bucket_name = "meeting-ai-storage"  # Replace with your bucket name
 bucket = storage_client.bucket(bucket_name)
 
 # Initialize Gemini API
-os.environ["GEMINI_API_KEY"] = "AIzaSyAjmcfNMGCSI19icee7X_1-2gMrZMmEq8M"
+os.environ["GEMINI_API_KEY"] = ""
 
 # Function to read transcript from a file
 def read_transcript_from_file(file_path):
