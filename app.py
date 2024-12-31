@@ -4,11 +4,21 @@ import os
 import tempfile
 import subprocess
 import platform
+import logging
 from google.cloud import storage, speech
 from google.oauth2 import service_account
 from pathlib import Path  # For cross-platform path handling
 from pydub.utils import mediainfo  # For audio duration as a fallback
 import google.generativeai as genai
+
+# Initialize logging with append mode
+logging.basicConfig(
+    filename="src/logs/week_3/meeting_minutes_assistant.log",
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    filemode='a'  # Append mode
+)
+
 
 # Path to the service account JSON file
 SERVICE_ACCOUNT_FILE = ""  # Update the name as needed
@@ -32,6 +42,7 @@ def save_audio_to_gcs(audio):
     Saves an audio file (either uploaded or recorded) to Google Cloud Storage.
     Generates a hierarchical path for the file based on the current timestamp.
     """
+    logging.info("Starting audio upload to Google Cloud Storage.")
     try:
         current_date = datetime.datetime.now().strftime("%Y-%m-%d")
         date_folder = f"{current_date}/"
@@ -53,8 +64,10 @@ def save_audio_to_gcs(audio):
         blob.upload_from_filename(audio)
 
         gcs_uri = f"gs://{bucket_name}/{full_audio_path}"
+        logging.info(f"Audio uploaded successfully: {gcs_uri}")
         return f"Audio saved to: {gcs_uri}", audio_folder
     except Exception as e:
+        logging.error(f"Error during audio upload: {str(e)}")
         return f"An error occurred while saving audio: {str(e)}", None
 
 
@@ -63,8 +76,8 @@ def get_audio_duration(gcs_audio_uri):
     Retrieves the duration of the audio file in seconds using FFmpeg, handling GCS URIs.
     Compatible with both Linux and Windows.
     """
+    logging.info(f"Fetching audio duration for URI: {gcs_audio_uri}")
     try:
-        # Extract bucket name and blob name
         bucket_name = gcs_audio_uri.split("/")[2]
         blob_name = "/".join(gcs_audio_uri.split("/")[3:])
         bucket = storage_client.bucket(bucket_name)
@@ -95,24 +108,23 @@ def get_audio_duration(gcs_audio_uri):
         os.remove(temp_file_path)
 
         if duration_line:
-            # Extract the duration from the line
             duration_str = duration_line.split(",")[0].split("Duration:")[1].strip()
             parts = duration_str.split(":")
             seconds = float(parts[0]) * 3600 + float(parts[1]) * 60 + float(parts[2])
+            logging.info(f"Audio duration: {seconds} seconds")
             return seconds
         else:
             raise ValueError("Unable to extract duration from FFmpeg output.")
     except Exception as e:
-        print(f"Error retrieving audio duration: {str(e)}")
+        logging.error(f"Error retrieving audio duration: {str(e)}")
         return 0
-
-
 
 
 def transcribe_audio(gcs_audio_uri):
     """
     Transcribes audio from a GCS file using Google Cloud Speech-to-Text API.
     """
+    logging.info(f"Starting transcription for URI: {gcs_audio_uri}")
     try:
         audio = speech.RecognitionAudio(uri=gcs_audio_uri)
         encoding = (
@@ -130,7 +142,6 @@ def transcribe_audio(gcs_audio_uri):
 
         audio_duration_seconds = get_audio_duration(gcs_audio_uri)
 
-        # Ensure duration is numeric and greater than zero
         if not isinstance(audio_duration_seconds, (int, float)) or audio_duration_seconds <= 0:
             return "Error: Unable to determine audio duration. Please check the audio file."
 
@@ -140,15 +151,15 @@ def transcribe_audio(gcs_audio_uri):
         else:
             response = speech_client.recognize(config=config, audio=audio)
 
-
         transcript = " ".join([result.alternatives[0].transcript for result in response.results])
 
-        # Update the global transcript variable
         global global_transcript
         global_transcript = transcript
 
+        logging.info("Transcription completed successfully.")
         return transcript if transcript else "No speech detected."
     except Exception as e:
+        logging.error(f"Transcription failed: {str(e)}")
         return f"Transcription failed due to an error: {str(e)}"
 
 
@@ -156,6 +167,7 @@ def list_files_in_bucket():
     """
     List all files in the bucket with a hierarchical view of folders and subfolders.
     """
+    logging.info("Fetching list of files in the bucket.")
     files = {}
     blobs = storage_client.list_blobs(bucket_name)
     for blob in blobs:
@@ -168,63 +180,92 @@ def classify_transcript(transcript):
     """
     Classifies the transcript using the Gemini API.
     """
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    logging.info("Starting transcript classification.")
+    try:
+        genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+        model = genai.GenerativeModel("gemini-1.5-flash")
 
-    # Identify major areas
-    prompt1 = f"""
-    Read the following meeting transcript:
+        prompt1 = f"""
+        Read the following meeting transcript:
 
-    {transcript}
+        {transcript}
 
-    Based on the context, identify the major areas or tasks discussed.
-    Return a concise, comma-separated list of these major areas.
-    """
+        Based on the context, identify the major areas or tasks discussed.
+        Return a concise, comma-separated list of these major areas.
+        """
 
-    response1 = model.generate_content(prompt1)
-    major_classes = response1.text.strip().split(",")
+        response1 = model.generate_content(prompt1)
+        major_classes = response1.text.strip().split(",")
 
-    # Classify each line
-    prompt2 = f"""
-    Read the following meeting transcript:
+        prompt2 = f"""
+        Read the following meeting transcript:
 
-    {transcript}
+        {transcript}
 
-    Classify each line into one of the following areas: {', '.join(major_classes)}.
-    """
+        Classify each line into one of the following areas: {', '.join(major_classes)}.
+        """
 
-    response2 = model.generate_content(prompt2)
-    return response2.text.strip()
-
+        response2 = model.generate_content(prompt2)
+        logging.info("Classification completed successfully.")
+        return response2.text.strip()
+    except Exception as e:
+        logging.error(f"Classification failed: {str(e)}")
+        return f"Classification failed due to an error: {str(e)}"
 
 def get_response(message, history):
     """
     Handles user interaction with the assistant and incorporates chat history.
+    Logs user messages, generated prompts, and assistant responses.
     """
     if not global_transcript:
+        logging.warning("No transcript available; user requested a response.")
         return [{"role": "assistant", "content": "Please transcribe audio before asking questions."}]
 
-    history_text = "\n".join(
-        f"User: {entry['content']}" if entry['role'] == "user" else f"Assistant: {entry['content']}"
-        for entry in history
-    )
+    try:
+        # Construct the conversation history for the prompt
+        history_text = "\n".join(
+            f"User: {entry['content']}" if entry['role'] == "user" else f"Assistant: {entry['content']}"
+            for entry in history
+        )
 
-    prompt = f"""
-    Based on the meeting transcript:
+        # Construct the full prompt
+        prompt = f"""
+        Based on the meeting transcript:
 
-    {global_transcript}
+        {global_transcript}
 
-    Here is the conversation history:
-    {history_text}
+        Here is the conversation history:
+        {history_text}
 
-    Now, answer the following question:
-    {message}
-    """
+        Now, answer the following question:
+        {message}
+        """
+        
+        logging.info("Constructed prompt for assistant response.")
+        logging.debug(f"Prompt:\n{prompt}")
 
-    genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
-    response = model.generate_content(prompt)
-    return history + [{"role": "user", "content": message}, {"role": "assistant", "content": response.text.strip()}]
+        # Initialize and configure the Generative AI model
+        genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        
+        # Generate the response from the model
+        response = model.generate_content(prompt)
+        assistant_response = response.text.strip()
+        
+        logging.info("Assistant response generated successfully.")
+        logging.debug(f"Response:\n{assistant_response}")
+
+        # Update history and return
+        updated_history = history + [
+            {"role": "user", "content": message},
+            {"role": "assistant", "content": assistant_response},
+        ]
+        
+        logging.info("Conversation history updated.")
+        return updated_history
+    except Exception as e:
+        logging.error(f"Error in get_response function: {str(e)}")
+        return history + [{"role": "assistant", "content": f"An error occurred: {str(e)}"}]
 
 
 # Gradio Interface
