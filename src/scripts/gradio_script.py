@@ -5,7 +5,7 @@
 # from google.oauth2 import service_account
 
 # # Path to the service account JSON file
-# SERVICE_ACCOUNT_FILE = "sa_minutes_ai.json"  # Update the path as needed
+# SERVICE_ACCOUNT_FILE = ""  # Update the path as needed
 
 # # Initialize Google Cloud Storage client using the service account file
 # credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
@@ -95,7 +95,7 @@
 # import sys
 
 # # Path to the service account JSON file
-# SERVICE_ACCOUNT_FILE = "sa_minutes_ai.json"  # Update the path as needed
+# SERVICE_ACCOUNT_FILE = ""  # Update the path as needed
 
 # # Initialize Google Cloud Storage client using the service account file
 # credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
@@ -191,7 +191,7 @@
 # import time
 
 # # Path to the service account JSON file
-# SERVICE_ACCOUNT_FILE = "sa_minutes_ai.json"  # Update the path as needed
+# SERVICE_ACCOUNT_FILE = ""  # Update the path as needed
 
 # # Initialize Google Cloud Storage client using the service account file
 # credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
@@ -292,7 +292,7 @@ from google.cloud import storage
 from google.oauth2 import service_account
 
 # Path to the service account JSON file
-SERVICE_ACCOUNT_FILE = "sa_minutes_ai.json"  # Update the path as needed
+SERVICE_ACCOUNT_FILE = ""  # Update the path as needed
 
 # Initialize Google Cloud Storage client using the service account file
 credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
