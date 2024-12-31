@@ -1,0 +1,221 @@
+2024-12-31 14:14:44,035 - INFO - Program started and initialized services.
+2024-12-31 14:14:44,035 - INFO - Starting the program.
+2024-12-31 14:14:44,035 - INFO - Setting up Gradio interface.
+2024-12-31 14:14:44,292 - INFO - Launching Gradio demo.
+2024-12-31 14:14:44,592 - INFO - HTTP Request: GET http://127.0.0.1:7860/gradio_api/startup-events "HTTP/1.1 200 OK"
+2024-12-31 14:14:44,618 - INFO - HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2024-12-31 14:14:46,251 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-12-31 14:22:18,546 - INFO - Initializing Google Cloud clients.
+2024-12-31 14:22:18,559 - INFO - Google Cloud clients initialized successfully.
+2024-12-31 14:22:18,560 - INFO - Gemini API key set.
+2024-12-31 14:22:18,560 - INFO - Launching Gradio interface.
+2024-12-31 14:22:20,207 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-12-31 14:23:29,728 - INFO - Initializing Google Cloud clients.
+2024-12-31 14:23:29,745 - INFO - Google Cloud clients initialized successfully.
+2024-12-31 14:23:29,745 - INFO - Gemini API key set.
+2024-12-31 14:23:29,746 - INFO - Launching Gradio interface.
+2024-12-31 14:23:30,300 - INFO - HTTP Request: GET http://127.0.0.1:7861/gradio_api/startup-events "HTTP/1.1 200 OK"
+2024-12-31 14:23:30,324 - INFO - HTTP Request: HEAD http://127.0.0.1:7861/ "HTTP/1.1 200 OK"
+2024-12-31 14:23:31,180 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-12-31 14:29:13,441 - DEBUG - Using selector: EpollSelector
+2024-12-31 14:29:13,469 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-12-31 14:29:13,470 - DEBUG - connect_tcp.started host='api.gradio.app' port=443 local_address=None timeout=3 socket_options=None
+2024-12-31 14:29:13,915 - DEBUG - https://huggingface.co:443 "HEAD /api/telemetry/gradio/initiated HTTP/1.1" 200 0
+2024-12-31 14:29:14,215 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x72b28bba4cd0>
+2024-12-31 14:29:14,216 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x72b28bb54950> server_hostname='api.gradio.app' timeout=3
+2024-12-31 14:29:14,832 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x72b28bedd940>
+2024-12-31 14:29:14,833 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-12-31 14:29:14,833 - DEBUG - send_request_headers.complete
+2024-12-31 14:29:14,833 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-12-31 14:29:14,834 - DEBUG - send_request_body.complete
+2024-12-31 14:29:14,834 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-12-31 14:29:15,141 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 31 Dec 2024 09:29:14 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'21'), (b'Connection', b'keep-alive'), (b'Server', b'nginx/1.18.0'), (b'Access-Control-Allow-Origin', b'*')])
+2024-12-31 14:29:15,141 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-12-31 14:29:15,141 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-12-31 14:29:15,142 - DEBUG - receive_response_body.complete
+2024-12-31 14:29:15,142 - DEBUG - response_closed.started
+2024-12-31 14:29:15,142 - DEBUG - response_closed.complete
+2024-12-31 14:29:15,142 - DEBUG - close.started
+2024-12-31 14:29:15,142 - DEBUG - close.complete
+2024-12-31 14:31:57,512 - DEBUG - Using selector: EpollSelector
+2024-12-31 14:31:57,531 - DEBUG - connect_tcp.started host='api.gradio.app' port=443 local_address=None timeout=3 socket_options=None
+2024-12-31 14:31:57,532 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-12-31 14:31:57,978 - DEBUG - Using selector: EpollSelector
+2024-12-31 14:31:58,010 - DEBUG - https://huggingface.co:443 "HEAD /api/telemetry/gradio/initiated HTTP/1.1" 200 0
+2024-12-31 14:31:58,018 - DEBUG - connect_tcp.started host='127.0.0.1' port=7862 local_address=None timeout=None socket_options=None
+2024-12-31 14:31:58,019 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x75ede8d5c7d0>
+2024-12-31 14:31:58,019 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-12-31 14:31:58,024 - DEBUG - send_request_headers.complete
+2024-12-31 14:31:58,024 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-12-31 14:31:58,025 - DEBUG - send_request_body.complete
+2024-12-31 14:31:58,025 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-12-31 14:31:58,026 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Tue, 31 Dec 2024 09:31:57 GMT'), (b'server', b'uvicorn'), (b'content-length', b'4'), (b'content-type', b'application/json')])
+2024-12-31 14:31:58,027 - INFO - HTTP Request: GET http://127.0.0.1:7862/gradio_api/startup-events "HTTP/1.1 200 OK"
+2024-12-31 14:31:58,028 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-12-31 14:31:58,029 - DEBUG - receive_response_body.complete
+2024-12-31 14:31:58,029 - DEBUG - response_closed.started
+2024-12-31 14:31:58,029 - DEBUG - response_closed.complete
+2024-12-31 14:31:58,029 - DEBUG - close.started
+2024-12-31 14:31:58,030 - DEBUG - close.complete
+2024-12-31 14:31:58,031 - DEBUG - connect_tcp.started host='127.0.0.1' port=7862 local_address=None timeout=3 socket_options=None
+2024-12-31 14:31:58,031 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x75ede8d22650>
+2024-12-31 14:31:58,031 - DEBUG - send_request_headers.started request=<Request [b'HEAD']>
+2024-12-31 14:31:58,032 - DEBUG - send_request_headers.complete
+2024-12-31 14:31:58,032 - DEBUG - send_request_body.started request=<Request [b'HEAD']>
+2024-12-31 14:31:58,033 - DEBUG - send_request_body.complete
+2024-12-31 14:31:58,033 - DEBUG - receive_response_headers.started request=<Request [b'HEAD']>
+2024-12-31 14:31:58,160 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Tue, 31 Dec 2024 09:31:57 GMT'), (b'server', b'uvicorn'), (b'content-length', b'38101'), (b'content-type', b'text/html; charset=utf-8')])
+2024-12-31 14:31:58,160 - INFO - HTTP Request: HEAD http://127.0.0.1:7862/ "HTTP/1.1 200 OK"
+2024-12-31 14:31:58,161 - DEBUG - receive_response_body.started request=<Request [b'HEAD']>
+2024-12-31 14:31:58,161 - DEBUG - receive_response_body.complete
+2024-12-31 14:31:58,161 - DEBUG - response_closed.started
+2024-12-31 14:31:58,161 - DEBUG - response_closed.complete
+2024-12-31 14:31:58,161 - DEBUG - close.started
+2024-12-31 14:31:58,161 - DEBUG - close.complete
+2024-12-31 14:31:58,164 - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2024-12-31 14:31:58,218 - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x75ede8d23360>
+2024-12-31 14:31:58,218 - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x75edf1ad0950> server_hostname='api.gradio.app' timeout=3
+2024-12-31 14:31:58,539 - DEBUG - https://huggingface.co:443 "HEAD /api/telemetry/gradio/launched HTTP/1.1" 200 0
+2024-12-31 14:31:58,845 - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x75ede8d05eb0>
+2024-12-31 14:31:58,845 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-12-31 14:31:58,845 - DEBUG - send_request_headers.complete
+2024-12-31 14:31:58,845 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-12-31 14:31:58,845 - DEBUG - send_request_body.complete
+2024-12-31 14:31:58,846 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-12-31 14:31:59,159 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Tue, 31 Dec 2024 09:31:59 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'21'), (b'Connection', b'keep-alive'), (b'Server', b'nginx/1.18.0'), (b'Access-Control-Allow-Origin', b'*')])
+2024-12-31 14:31:59,159 - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2024-12-31 14:31:59,159 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-12-31 14:31:59,160 - DEBUG - receive_response_body.complete
+2024-12-31 14:31:59,160 - DEBUG - response_closed.started
+2024-12-31 14:31:59,160 - DEBUG - response_closed.complete
+2024-12-31 14:31:59,160 - DEBUG - close.started
+2024-12-31 14:31:59,160 - DEBUG - close.complete
+2024-12-31 14:32:07,990 - DEBUG - Calling on_part_begin with no data
+2024-12-31 14:32:07,990 - DEBUG - Calling on_header_field with data[59:78]
+2024-12-31 14:32:07,991 - DEBUG - Calling on_header_value with data[80:164]
+2024-12-31 14:32:07,991 - DEBUG - Calling on_header_end with no data
+2024-12-31 14:32:07,991 - DEBUG - Calling on_header_field with data[166:178]
+2024-12-31 14:32:07,991 - DEBUG - Calling on_header_value with data[180:190]
+2024-12-31 14:32:07,991 - DEBUG - Calling on_header_end with no data
+2024-12-31 14:32:07,991 - DEBUG - Calling on_headers_finished with no data
+2024-12-31 14:32:07,991 - DEBUG - Calling on_part_data with data[194:97749]
+2024-12-31 14:32:07,997 - DEBUG - Calling on_part_data with data[0:327680]
+2024-12-31 14:32:08,002 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,005 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,008 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,013 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,017 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,020 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,022 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,025 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,029 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,031 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,036 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,039 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,041 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,044 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,047 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,050 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,052 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,054 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,056 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,058 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,062 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,065 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,067 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,069 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,071 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,073 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,074 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,076 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,080 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,082 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,084 - DEBUG - Calling on_part_data with data[0:262144]
+2024-12-31 14:32:08,085 - DEBUG - Calling on_part_data with data[0:84519]
+2024-12-31 14:32:08,085 - DEBUG - Calling on_part_end with no data
+2024-12-31 14:32:08,085 - DEBUG - Calling on_end with no data
+2024-12-31 14:32:09,803 - DEBUG - matplotlib data path: /home/dibs/TTDS/minutes_ai/lib/python3.13/site-packages/matplotlib/mpl-data
+2024-12-31 14:32:09,819 - DEBUG - CONFIGDIR=/home/dibs/.config/matplotlib
+2024-12-31 14:32:09,824 - DEBUG - interactive is False
+2024-12-31 14:32:09,824 - DEBUG - platform is linux
+2024-12-31 14:32:10,132 - DEBUG - CACHEDIR=/home/dibs/.cache/matplotlib
+2024-12-31 14:32:10,136 - DEBUG - Using fontManager instance from /home/dibs/.cache/matplotlib/fontlist-v390.json
+2024-12-31 14:32:10,944 - DEBUG - Loaded backend agg version v2.2.
+2024-12-31 14:32:10,950 - INFO - Starting audio upload to Google Cloud Storage.
+2024-12-31 14:32:10,953 - DEBUG - Converted retries value: 3 -> Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2024-12-31 14:32:11,004 - DEBUG - Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2024-12-31 14:32:11,496 - DEBUG - https://oauth2.googleapis.com:443 "POST /token HTTP/1.1" 200 None
+2024-12-31 14:32:11,498 - DEBUG - Starting new HTTPS connection (1): storage.googleapis.com:443
+2024-12-31 14:32:12,101 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prefix=2024-12-31%2F&prettyPrint=false HTTP/1.1" 200 1624
+2024-12-31 14:32:12,414 - DEBUG - https://storage.googleapis.com:443 "POST /upload/storage/v1/b/meeting-ai-storage/o?uploadType=resumable HTTP/1.1" 200 0
+2024-12-31 14:32:20,780 - DEBUG - https://storage.googleapis.com:443 "PUT /upload/storage/v1/b/meeting-ai-storage/o?uploadType=resumable&upload_id=AFiumC6IDgs5skBEQxzckvM9q6twVR-gOMMHocR1G-ei2PHeWFMC9sNuood88jN57lgzhrLE6ZJ6tQwKa2daCaqeJU_JQBVwgqTGp7SEML43fJU HTTP/1.1" 200 1037
+2024-12-31 14:32:20,782 - INFO - Audio uploaded successfully: gs://meeting-ai-storage/2024-12-31/3/Simulated Meeting for Minute Taking Practice.mp3
+2024-12-31 14:32:27,822 - INFO - Fetching list of files in the bucket.
+2024-12-31 14:32:28,184 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 97182
+2024-12-31 14:32:33,173 - INFO - Fetching list of files in the bucket.
+2024-12-31 14:32:33,524 - DEBUG - https://storage.googleapis.com:443 "GET /storage/v1/b/meeting-ai-storage/o?projection=noAcl&prettyPrint=false HTTP/1.1" 200 97182
+2024-12-31 14:32:38,760 - INFO - Starting transcription for URI: gs://meeting-ai-storage/2024-12-31/3/Simulated Meeting for Minute Taking Practice.mp3
+2024-12-31 14:32:38,761 - INFO - Fetching audio duration for URI: gs://meeting-ai-storage/2024-12-31/3/Simulated Meeting for Minute Taking Practice.mp3
+2024-12-31 14:32:39,186 - DEBUG - https://storage.googleapis.com:443 "GET /download/storage/v1/b/meeting-ai-storage/o/2024-12-31%2F3%2FSimulated%20Meeting%20for%20Minute%20Taking%20Practice.mp3?alt=media HTTP/1.1" 200 8636218
+2024-12-31 14:32:44,991 - INFO - Audio duration: 359.81 seconds
+2024-12-31 14:34:33,356 - INFO - Transcription completed successfully.
+2024-12-31 14:36:26,980 - INFO - Starting transcript classification.
+2024-12-31 14:36:34,326 - INFO - Classification completed successfully.
+2024-12-31 14:36:54,820 - INFO - Constructed prompt for assistant response.
+2024-12-31 14:36:54,820 - DEBUG - Prompt:
+
+        Based on the meeting transcript:
+
+        you're about to see a meeting taking place at ABC manufacturing Carol's Lexa and her team are gathering for that fortnightly meeting the agenda contains 7 items including any other business take a moment now to gather pens and paper and position yourself to take the role of minutes take out before the meetings. Now we have a new team member to teeth in charge HR manager of a Morgan finance manager with a team of five reporting to me I should be on my bike right now outside we spoke on the phone last week I'm in charge of the production floor  okay Pita it go ahead and purchase on the Proviso that the quality and guarantee off just as good  okay mind on the production figures for last quarter please by 2% on product streams 1 and 2 and down by 2.5% on for Xtreme 3 we believe this is due to recent sales Campaign which focused on the higher-margin items in product James 1 and 2 which is a little short-sighted as Rio de rates on string three products are quicker so we tend to sell more products  moving on to the next agenda item I'm truly could you summarize the recent recruitment program how to put on the internet so I'll just give a brief we recruit any people just one woman she debated she left off to three weeks a husband but interesting Lee I successful recruits came from the radio I'd rather than a traditional advertising boot so therefore I would suggest that we review black and yellow safety type of individual side now unfortunately you ever put the takedown didn't do a good job  okay of weather in the system and how to best roll out the training program on site  favorite buffets roll out so we can check for the pools whilst keeping it up 7 time the longer that we got lead in the movie list of people can have my need to consider the impact of ships before we implemented by facing we can send it successfully Department says week I was leaving the training until then he sits in his stool next week so we can actually start to I've trained with it off individual teams who is doing the training  when you leave  recruit and train people from within the business we're happy to develop a train in calendar I will communicate that manages people the opportunity to develop the skills we need to make sure that competency training a system we can't afford for people to be poorly trained ones as long as it will get them on giving support to the difficult that we were going to be the trial department so we can all hang out during the lunch break and then have clear penalties for people found using the map outside of that time how would we monitor that Missy the system either move okay what do I do if we don't we could put a stop to it all together and only allow people access to our own internet system  Betadine  some people use the internet for what if it's what we do is take away from them they'll be taking away or fly the flag OK Google close to meeting our next meeting is in two weeks time 18th of October same time and place
+
+        Here is the conversation history:
+        
+
+        Now, answer the following question:
+        what is this meeting about?
+        
+2024-12-31 14:36:57,640 - INFO - Assistant response generated successfully.
+2024-12-31 14:36:57,641 - DEBUG - Response:
+This is a fortnightly meeting at ABC Manufacturing, covering various operational aspects of the business.  Topics discussed include:
+
+* **Production figures:** Review of last quarter's performance across three product streams.
+* **Recruitment:**  Summary of a recent recruitment drive, its successes and failures, and suggestions for future recruitment strategies.
+* **Training program rollout:** Discussion of the implementation plan for a new training program, including scheduling, trainer identification, and addressing potential challenges.
+* **Internet access policy:**  Debate about employee internet usage and strategies to monitor and control access.
+
+In short, the meeting focuses on reviewing past performance, improving future recruitment and training, and refining company policy regarding internet access.
+2024-12-31 14:36:57,641 - INFO - Conversation history updated.
+2024-12-31 14:37:08,596 - INFO - Constructed prompt for assistant response.
+2024-12-31 14:37:08,596 - DEBUG - Prompt:
+
+        Based on the meeting transcript:
+
+        you're about to see a meeting taking place at ABC manufacturing Carol's Lexa and her team are gathering for that fortnightly meeting the agenda contains 7 items including any other business take a moment now to gather pens and paper and position yourself to take the role of minutes take out before the meetings. Now we have a new team member to teeth in charge HR manager of a Morgan finance manager with a team of five reporting to me I should be on my bike right now outside we spoke on the phone last week I'm in charge of the production floor  okay Pita it go ahead and purchase on the Proviso that the quality and guarantee off just as good  okay mind on the production figures for last quarter please by 2% on product streams 1 and 2 and down by 2.5% on for Xtreme 3 we believe this is due to recent sales Campaign which focused on the higher-margin items in product James 1 and 2 which is a little short-sighted as Rio de rates on string three products are quicker so we tend to sell more products  moving on to the next agenda item I'm truly could you summarize the recent recruitment program how to put on the internet so I'll just give a brief we recruit any people just one woman she debated she left off to three weeks a husband but interesting Lee I successful recruits came from the radio I'd rather than a traditional advertising boot so therefore I would suggest that we review black and yellow safety type of individual side now unfortunately you ever put the takedown didn't do a good job  okay of weather in the system and how to best roll out the training program on site  favorite buffets roll out so we can check for the pools whilst keeping it up 7 time the longer that we got lead in the movie list of people can have my need to consider the impact of ships before we implemented by facing we can send it successfully Department says week I was leaving the training until then he sits in his stool next week so we can actually start to I've trained with it off individual teams who is doing the training  when you leave  recruit and train people from within the business we're happy to develop a train in calendar I will communicate that manages people the opportunity to develop the skills we need to make sure that competency training a system we can't afford for people to be poorly trained ones as long as it will get them on giving support to the difficult that we were going to be the trial department so we can all hang out during the lunch break and then have clear penalties for people found using the map outside of that time how would we monitor that Missy the system either move okay what do I do if we don't we could put a stop to it all together and only allow people access to our own internet system  Betadine  some people use the internet for what if it's what we do is take away from them they'll be taking away or fly the flag OK Google close to meeting our next meeting is in two weeks time 18th of October same time and place
+
+        Here is the conversation history:
+        User: what is this meeting about?
+Assistant: This is a fortnightly meeting at ABC Manufacturing, covering various operational aspects of the business.  Topics discussed include:
+
+* **Production figures:** Review of last quarter's performance across three product streams.
+* **Recruitment:**  Summary of a recent recruitment drive, its successes and failures, and suggestions for future recruitment strategies.
+* **Training program rollout:** Discussion of the implementation plan for a new training program, including scheduling, trainer identification, and addressing potential challenges.
+* **Internet access policy:**  Debate about employee internet usage and strategies to monitor and control access.
+
+In short, the meeting focuses on reviewing past performance, improving future recruitment and training, and refining company policy regarding internet access.
+
+        Now, answer the following question:
+        who was present in the meeting?
+        
+2024-12-31 14:37:11,612 - INFO - Assistant response generated successfully.
+2024-12-31 14:37:11,612 - DEBUG - Response:
+Based on the transcript, the following people were present at the meeting:
+
+* Carol (likely the meeting leader)
+* Lexa (likely Carol's team member)
+* Pita (involved in purchasing)
+* A Morgan (HR manager)
+* A new team member (name not specified)
+
+
+The transcript mentions others (e.g., individuals involved in training) but doesn't explicitly state their presence at *this* particular meeting.
+2024-12-31 14:37:11,612 - INFO - Conversation history updated.
