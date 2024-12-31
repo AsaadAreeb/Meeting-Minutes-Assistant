@@ -3,7 +3,7 @@ import gradio as gr
 import os
 
 # Configure Gemini API
-GOOGLE_API_KEY = 'AIzaSyAjmcfNMGCSI19icee7X_1-2gMrZMmEq8M'  # Replace with your actual API key
+GOOGLE_API_KEY = ''  # Replace with your actual API key
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Read meeting minutes
