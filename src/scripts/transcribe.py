@@ -6,7 +6,7 @@
 # import tempfile
 
 # # Path to the service account JSON file
-# SERVICE_ACCOUNT_FILE = "sa_minutes_ai.json"  # Update the path as needed
+# SERVICE_ACCOUNT_FILE = ""  # Update the path as needed
 
 # # Initialize Google Cloud clients
 # credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
@@ -187,7 +187,7 @@ import time
 import sys
 
 # Path to the service account JSON file
-SERVICE_ACCOUNT_FILE = "sa_minutes_ai.json"  # Update the path as needed
+SERVICE_ACCOUNT_FILE = ""  # Update the path as needed
 
 # Initialize Google Cloud clients
 credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE)
