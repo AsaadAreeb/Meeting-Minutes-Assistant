@@ -3,7 +3,7 @@
 # import google.generativeai as genai
 
 # # Replace with your actual Gemini API key
-# os.environ["GEMINI_API_KEY"] = "AIzaSyAjmcfNMGCSI19icee7X_1-2gMrZMmEq8M" 
+# os.environ["GEMINI_API_KEY"] = "" 
 
 # def classify_transcript(transcript):
 #     """
@@ -129,7 +129,7 @@ import os
 import google.generativeai as genai
 
 # Replace with your actual Gemini API key
-os.environ["GEMINI_API_KEY"] = "AIzaSyAjmcfNMGCSI19icee7X_1-2gMrZMmEq8M" 
+os.environ["GEMINI_API_KEY"] = "" 
 
 def classify_transcript(transcript):
     """
